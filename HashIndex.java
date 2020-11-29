@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class HashIndex here.
+ * Implementations for HashMap
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Khaki
+ * @version 11/24/2020
  */
 import java.util.*;
 public class HashIndex implements Index
@@ -12,7 +12,7 @@ public class HashIndex implements Index
     private HashMap<String, TreeSet<Integer>> map;
 
     /**
-     * Constructor for objects of class HashIndex
+     * Constructs a HashMap
      */
     public HashIndex()
     {
@@ -20,27 +20,45 @@ public class HashIndex implements Index
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Searches HashMap to see if it contains the word, if not adds a new one, if so, then adds to that word the line number
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @param  w  The word to be added
+     * @return    If the insertion is successful
      */
     public boolean searchAndAdd(String w, Integer k)
     {
         if(this.map.isEmpty()){
             return false;
         }
-        
+
         if(this.map.containsKey(w)){
             TreeSet<Integer> set = this.map.get(w);
             set.add(k);
             this.map.replace(w,set);
             return true;
         }
-        
+
         TreeSet<Integer> set = new TreeSet<Integer>();
         set.add(k);
         this.map.put(w,set);
         return true;
+    }
+
+    /**
+     * Finds the total number of words encountered
+     * 
+     * @return    the number of words
+     */
+    public int size() {
+        return this.map.size();
+    }
+
+    /**
+     * Gives the data as an array
+     * 
+     * @return    the array
+     */
+    public Entry[] toArray() {
+        return (Entry[])this.map.values().toArray();
     }
 }

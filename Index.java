@@ -1,17 +1,31 @@
-
+import java.util.Iterator;
 /**
- * Write a description of interface Index here.
+ * A interface for implementations of methods to be used by the mapping algorithms
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Khaki
+ * @version 11/24/2020
  */
 public interface Index
 {
     /**
-     * An example of a method header - replace this comment with your own
+     * Searches storage device to see if it contains the word, if not adds a new one, if so, then adds to that word the line number
      *
-     * @param  y a sample parameter for a method
-     * @return   the result produced by sampleMethod
+     * @param  w  The word to be added
+     * @return    If the insertion is successful
      */
     boolean searchAndAdd(String w, Integer line);
+    
+    /**
+     * Finds the total number of words encountered
+     * 
+     * @return    the number of words
+     */
+    int size();
+    
+    /**
+     * Gives the data as an array
+     * 
+     * @return    the array
+     */
+    Entry[] toArray();
 }

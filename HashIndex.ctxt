@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=HashIndex
+comment1.params=
+comment1.target=HashIndex()
+comment1.text=\r\n\ Constructs\ a\ HashMap\r\n
+comment2.params=w\ k
+comment2.target=boolean\ searchAndAdd(java.lang.String,\ java.lang.Integer)
+comment2.text=\r\n\ Searches\ HashMap\ to\ see\ if\ it\ contains\ the\ word,\ if\ not\ adds\ a\ new\ one,\ if\ so,\ then\ adds\ to\ that\ word\ the\ line\ number\r\n\r\n\ @param\ \ w\ \ The\ word\ to\ be\ added\r\n\ @return\ \ \ \ If\ the\ insertion\ is\ successful\r\n
+comment3.params=
+comment3.target=int\ size()
+comment3.text=\r\n\ Finds\ the\ total\ number\ of\ words\ encountered\r\n\ \r\n\ @return\ \ \ \ the\ number\ of\ words\r\n
+comment4.params=
+comment4.target=Entry[]\ toArray()
+comment4.text=\r\n\ Gives\ the\ data\ as\ an\ array\r\n\ \r\n\ @return\ \ \ \ the\ array\r\n
+numComments=5

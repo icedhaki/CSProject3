@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Index
+comment0.text=\r\n\ A\ interface\ for\ implementations\ of\ methods\ to\ be\ used\ by\ the\ mapping\ algorithms\r\n\r\n\ @author\ Khaki\r\n\ @version\ 11/24/2020\r\n
+comment1.params=w\ line
+comment1.target=boolean\ searchAndAdd(java.lang.String,\ java.lang.Integer)
+comment1.text=\r\n\ Searches\ storage\ device\ to\ see\ if\ it\ contains\ the\ word,\ if\ not\ adds\ a\ new\ one,\ if\ so,\ then\ adds\ to\ that\ word\ the\ line\ number\r\n\r\n\ @param\ \ w\ \ The\ word\ to\ be\ added\r\n\ @return\ \ \ \ If\ the\ insertion\ is\ successful\r\n
+comment2.params=
+comment2.target=int\ size()
+comment2.text=\r\n\ Finds\ the\ total\ number\ of\ words\ encountered\r\n\ \r\n\ @return\ \ \ \ the\ number\ of\ words\r\n
+comment3.params=
+comment3.target=Entry[]\ toArray()
+comment3.text=\r\n\ Gives\ the\ data\ as\ an\ array\r\n\ \r\n\ @return\ \ \ \ the\ array\r\n
+numComments=4

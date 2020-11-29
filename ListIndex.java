@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class ListIndex here.
+ * Implementations for ArrayList
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Khaki
+ * @version 11/24/2020
  */
 import java.util.*;
 public class ListIndex implements Index
@@ -12,7 +12,7 @@ public class ListIndex implements Index
     private ArrayList<Entry> list;
 
     /**
-     * Constructor for objects of class ListIndex
+     * Constructs the ListIndex
      */
     public ListIndex()
     {
@@ -20,20 +20,20 @@ public class ListIndex implements Index
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Searches ArrayList to see if it contains the word, if not adds a new one, if so, then adds to that word the line number
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @param  w  The word to be added
+     * @return    If the insertion is successful
      */
     public boolean searchAndAdd(String w, Integer k){
         if(this.list == null){
             return false;
         }
-        
+
         int low = 0;
         int high = this.list.size()-1;
         int mid;
-        
+
         while(low<=high){
             mid = (low+high)/2;
             if(this.list.get(mid).getWord().compareTo(w)<0){
@@ -47,10 +47,28 @@ public class ListIndex implements Index
                 return true;
             }
         }
-        
+
         Entry e = new Entry(w,k); // create new entry
         this.list.add(low,e); // add new Entry to the list
-        
+
         return true;
+    }
+
+    /**
+     * Finds the total number of words encountered
+     * 
+     * @return    the number of words
+     */
+    public int size() {
+        return this.list.size();
+    }
+    
+    /**
+     * Gives the data as an array
+     * 
+     * @return    the array
+     */
+    public Entry[] toArray() {
+        return (Entry[])this.list.toArray();
     }
 }

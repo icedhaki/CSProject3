@@ -1,18 +1,21 @@
 
 /**
- * Write a description of class Entry here.
+ * An entry, containing each line where a word is located
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Khaki
+ * @version 11/24/2020
  */
 import java.util.*;
 public class Entry
 {
     // instance variables - replace the example below with your own
     private String word;
-    private TreeSet<Integer> set;
+    private ArrayList<Integer> set = new ArrayList();
     /**
-     * Constructor for objects of class Entry
+     * Constructs an entry with a given word and the line where it first appears
+     * 
+     * @param  word  the word to be added
+     * @param  line  the line where the word is first located
      */
     public Entry(String word,Integer line)
     {
@@ -21,20 +24,36 @@ public class Entry
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Adds another line to the list of lines that the word appears
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @param  line  the line number to be added
      */
     public void addLine(Integer line){
         set.add(line);
     }
     
+    /**
+     * Gets the word
+     * 
+     * @return    the word
+     */
     public String getWord(){
         return this.word;
     }
     
-    public TreeSet<Integer> getSet(){
+    /**
+     * Gets the list of all lines where the word appeared
+     * 
+     * @return    the set
+     */
+    public ArrayList<Integer> getList(){
         return this.set;
+    }
+    
+    /**
+     * Returns a string representation of the word and it's associated line numbers.
+     */
+    public String toString() {
+        return word + " " + this.set.toString();
     }
 }

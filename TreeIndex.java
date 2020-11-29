@@ -1,18 +1,18 @@
 
 /**
- * Write a description of class TreeIndex here.
+ * Implementations for TreeMap
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Khaki
+ * @version 11/24/2020
  */
 import java.util.*;
 public class TreeIndex implements Index
 {
     // instance variables - replace the example below with your own
-    private TreeMap<String, TreeSet<Integer>> map;
+    private TreeMap<String, ArrayList<Integer>> map;
 
     /**
-     * Constructor for objects of class TreeIndex
+     * Constructs a TreeMap
      */
     public TreeIndex()
     {
@@ -20,10 +20,10 @@ public class TreeIndex implements Index
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Searches TreeMap to see if it contains the word, if not adds a new one, if so, then adds to that word the line number
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @param  w  The word to be added
+     * @return    If the insertion is successful
      */
     public boolean searchAndAdd(String w, Integer k){
         if(this.map.isEmpty()){
@@ -31,15 +31,33 @@ public class TreeIndex implements Index
         }
         
         if(this.map.containsKey(w)){
-            TreeSet<Integer> set = this.map.get(w);
+            ArrayList<Integer> set = this.map.get(w);
             set.add(k);
             this.map.replace(w,set);
             return true;
         }
         
-        TreeSet<Integer> set = new TreeSet<Integer>();
+        ArrayList<Integer> set = new ArrayList<Integer>();
         set.add(k);
         this.map.put(w,set);
         return true;
+    }
+    
+    /**
+     * Finds the total number of words encountered
+     * 
+     * @return    the number of words
+     */
+    public int size() {
+        return this.map.size();
+    }
+    
+    /**
+     * Gives the data as an array
+     * 
+     * @return    the array
+     */
+    public Entry[] toArray() {
+        return (Entry[])this.map.values().toArray();
     }
 }
