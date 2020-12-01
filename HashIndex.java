@@ -2,7 +2,7 @@
 /**
  * Implementations for HashMap
  *
- * @author Khaki
+ * @author Khaknazar Shyntassov
  * @version 11/24/2020
  */
 import java.util.*;
@@ -16,7 +16,7 @@ public class HashIndex implements Index
      */
     public HashIndex()
     {
-        // initialise instance variables
+        map = new HashMap<String, TreeSet<Integer>>();
     }
 
     /**

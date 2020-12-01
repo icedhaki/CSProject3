@@ -1,4 +1,3 @@
-
 /**
  * Controls the Experiment
  *
@@ -9,7 +8,6 @@ import java.util.*;
 import java.io.*;
 public class ExperimentController
 {
-    static String[] bookNames = null; //list of names of all the books to be run
 
     /**
      * Times the amount of time it takes to run the line search using an ArrayList
@@ -18,7 +16,7 @@ public class ExperimentController
      * @return    the time to complete the word search
      */
     public static long timeListIndex (String name) {
-        ListIndex list = new ListIndex();
+        ListIndex list1 = new ListIndex();
         int lineNum = 0;
         File file = new File(name);
         Scanner s = null;
@@ -36,14 +34,14 @@ public class ExperimentController
             String line = s.nextLine(); // make it lowercase
             String[] words = line.split("[ˆA-Za-z]+"); // exclude punctuation
             for(int i=0; i<words.length; i++){
-                list.searchAndAdd(words[i].toLowerCase(),lineNum);
+                list1.searchAndAdd(words[i].toLowerCase(),lineNum);
             }
         }
         s.close();
         long endTime = System.currentTimeMillis();
-
+        /*
         //creates output file, adds all entries to it
-        Entry[] entries = list.toArray();
+        Entry[] entries = list1.toArray();
         FileWriter output = null;
         try {
             output = new FileWriter(name.substring(0, name.length()-4) + "_index.txt");
@@ -56,6 +54,7 @@ public class ExperimentController
             System.out.println("write failure");
             System.out.println(e);
         }
+        */
         return endTime - startTime;
     }
 
@@ -90,7 +89,7 @@ public class ExperimentController
         }
         s.close();
         long endTime = System.currentTimeMillis();
-
+        /*
         //creates output file, adds all entries to it
         Entry[] entries = list.toArray();
         FileWriter output = null;
@@ -105,6 +104,7 @@ public class ExperimentController
             System.out.println("write failure");
             System.out.println(e);
         }
+        */
         return endTime - startTime;
     }
 
@@ -139,6 +139,7 @@ public class ExperimentController
         s.close();
         long endTime = System.currentTimeMillis();
 
+        /*
         //creates output file, adds all entries to it
         Entry[] entries = list.toArray();
         FileWriter output = null;
@@ -153,6 +154,7 @@ public class ExperimentController
             System.out.println("write failure");
             System.out.println(e);
         }
+        */
         return endTime - startTime;
     }
 
@@ -160,15 +162,24 @@ public class ExperimentController
      * Main method - overall experiment running
      */
     public static void main(String[] args){
-        bookNames = args;
-        long listIndexTime = 0;
-        long treeMapTime = 0;
-        long hashMapTime = 0;
+        String[] bookNames = {"book0.txt","book1.txt","book2.txt","book3.txt","book4.txt","book5.txt","book6.txt","book7.txt"};
+        float listIndexTime = 0;
+        float treeMapTime = 0;
+        float hashMapTime = 0;
+        // running experiments on different books
         for (String book : bookNames) {
-            listIndexTime = timeListIndex(book);
-            treeMapTime = timeTreeMap(book);
-            hashMapTime = timeHashMap(book);
+            // running 5 trials
+            for(int i=0;i<5;i++){
+                listIndexTime = listIndexTime+timeListIndex(book);
+                treeMapTime = treeMapTime+timeTreeMap(book);
+                hashMapTime = hashMapTime+timeHashMap(book);
+            }
+            // calculating average times
+            listIndexTime=listIndexTime/5;
+            treeMapTime=treeMapTime/5;
+            hashMapTime=hashMapTime/5;
             
+            // printing times
             System.out.println(book + "times");
             System.out.println("List Index: " + listIndexTime);
             System.out.println("Tree Map: " + treeMapTime);

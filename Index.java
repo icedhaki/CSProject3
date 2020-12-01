@@ -2,7 +2,7 @@ import java.util.Iterator;
 /**
  * A interface for implementations of methods to be used by the mapping algorithms
  *
- * @author Khaki
+ * @author Khaknazar Shyntassov
  * @version 11/24/2020
  */
 public interface Index

@@ -2,7 +2,7 @@
 /**
  * Implementations for TreeMap
  *
- * @author Khaki
+ * @author Khaknazar Shyntassov
  * @version 11/24/2020
  */
 import java.util.*;
@@ -16,7 +16,7 @@ public class TreeIndex implements Index
      */
     public TreeIndex()
     {
-        // initialise instance variables
+        map = new TreeMap<String, ArrayList<Integer>>();
     }
 
     /**

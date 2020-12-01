@@ -2,7 +2,7 @@
 /**
  * An entry, containing each line where a word is located
  *
- * @author Khaki
+ * @author Khaknazar Shyntassov
  * @version 11/24/2020
  */
 import java.util.*;
@@ -10,7 +10,7 @@ public class Entry
 {
     // instance variables - replace the example below with your own
     private String word;
-    private ArrayList<Integer> set = new ArrayList();
+    private TreeSet<Integer> set;
     /**
      * Constructs an entry with a given word and the line where it first appears
      * 
@@ -19,6 +19,7 @@ public class Entry
      */
     public Entry(String word,Integer line)
     {
+        set = new TreeSet<Integer>();
         this.word = word;
         addLine(line);
     }
@@ -46,7 +47,7 @@ public class Entry
      * 
      * @return    the set
      */
-    public ArrayList<Integer> getList(){
+    public TreeSet<Integer> getSet(){
         return this.set;
     }
     

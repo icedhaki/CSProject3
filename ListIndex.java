@@ -2,7 +2,7 @@
 /**
  * Implementations for ArrayList
  *
- * @author Khaki
+ * @author Khaknazar Shyntassov
  * @version 11/24/2020
  */
 import java.util.*;
@@ -16,7 +16,7 @@ public class ListIndex implements Index
      */
     public ListIndex()
     {
-        // initialise instance variables
+        list = new ArrayList<Entry>();
     }
 
     /**
@@ -68,7 +68,7 @@ public class ListIndex implements Index
      * 
      * @return    the array
      */
-    public Entry[] toArray() {
+    public Entry[] toArray(){
         return (Entry[])this.list.toArray();
     }
 }
