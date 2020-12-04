@@ -16,30 +16,69 @@ public class ExperimentController
      * @return    the time to complete the word search
      */
     public static long timeListIndex (String name) {
+        ArrayList<String> dictionary = new ArrayList<String>();
+        try {
+            File file = new File("English.txt");
+            Scanner scanner = new Scanner(file);
+            // add words to a TreeMultiSet
+            while (scanner.hasNext()) {
+                String line = scanner.nextLine();
+                dictionary.add(line);
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found.");
+        }        
+        
         ListIndex list1 = new ListIndex();
-        int lineNum = 0;
-        File file = new File(name);
-        Scanner s = null;
-        try {//opens a scanner and adds all words to the tree multiset
-            s = new Scanner(file);
-        }
-        catch (FileNotFoundException e) {
+        long startTime = 0;
+        long stopTime = 0;
+        try {
+            File file = new File(name);
+            Scanner scanner = new Scanner(file);
+            int lineNum = 0;
+            // add words to a TreeMultiSet
+            startTime = System.currentTimeMillis();
+            while (scanner.hasNext()) {
+                lineNum++;
+                String line = scanner.nextLine();
+                String[] words = line.split("[\\p{Punct}\\s]+");
+                for(String w : words){
+                    w=w.toLowerCase();
+                    if(Collections.binarySearch(dictionary,w)>0){
+                        list1.searchAndAdd(w,lineNum); // exclude punctuation
+                    }
+                }
+            }
+            stopTime = System.currentTimeMillis();
+            scanner.close();
+        } catch (FileNotFoundException e) {
             System.out.println("File not found.");
         }
-        long startTime = System.currentTimeMillis();        
-
-        if (s == null) return -1; //ensures that the file has been found
-        while (s.hasNextLine()) { //adds all words to the list, sorts them, etc.
-            lineNum++;
-            String line = s.nextLine(); // make it lowercase
-            String[] words = line.split("[ˆA-Za-z]+"); // exclude punctuation
-            for(int i=0; i<words.length; i++){
-                list1.searchAndAdd(words[i].toLowerCase(),lineNum);
-            }
+        
+        
+        //creates output file, adds all entries to it
+                
+        Entry[] entries = new Entry[list1.size()];
+        for(int i=0;i<list1.size();i++){
+            entries[i]=list1.getList().get(i);
         }
-        s.close();
-        long endTime = System.currentTimeMillis();
-        return endTime - startTime;
+        
+        
+        PrintStream fileStream = null;
+        try {
+            fileStream = new PrintStream(new File("Shakespeare_index.txt"));
+            for (Entry word : entries) {
+                fileStream.println(word.toString());
+            }
+            fileStream.close();
+        }
+        catch (Exception e) {
+            System.out.println("write failure");
+            System.out.println(e);
+        }
+        
+        return stopTime - startTime;
     }
 
     /**
@@ -49,47 +88,72 @@ public class ExperimentController
      * @return    the time to complete the word search
      */
     public static long timeTreeMap (String name) {
-        TreeIndex list = new TreeIndex();
-        int lineNum = 0;
-        File file = new File(name);
-        Scanner s = null;
-        try {//opens a scanner and adds all words to the tree multiset
-            s = new Scanner(file);
-        }
-        catch (FileNotFoundException e) {
+        ArrayList<String> dictionary = new ArrayList<String>();
+        try {
+            File file = new File("English.txt");
+            Scanner scanner = new Scanner(file);
+            // add words to a TreeMultiSet
+            while (scanner.hasNext()) {
+                String line = scanner.nextLine();
+                dictionary.add(line);
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found.");
+        }        
+        
+        TreeIndex list1 = new TreeIndex();
+        long startTime = 0;
+        long stopTime = 0;
+        try {
+            File file = new File(name);
+            Scanner scanner = new Scanner(file);
+            int lineNum = 0;
+            // add words to a TreeMultiSet
+            startTime = System.currentTimeMillis();
+            while (scanner.hasNext()) {
+                lineNum++;
+                String line = scanner.nextLine();
+                String[] words = line.split("[\\p{Punct}\\s]+");
+                for(String w : words){
+                    w=w.toLowerCase();
+                    if(Collections.binarySearch(dictionary,w)>0){
+                        list1.searchAndAdd(w,lineNum); // exclude punctuation
+                    }
+                }
+            }
+            stopTime = System.currentTimeMillis();
+            scanner.close();
+        } catch (FileNotFoundException e) {
             System.out.println("File not found.");
         }
         
-        long startTime = System.currentTimeMillis();        
-
-        if (s == null) return -1; //ensures that the file has been found
-        while (s.hasNextLine()) { //adds all words to the list, sorts them, etc.
-            lineNum++;
-            String line = s.nextLine(); // make it lowercase
-            String[] words = line.split("[ˆA-Za-z]+"); // exclude punctuation
-            for(int i=0; i<words.length; i++){
-                list.searchAndAdd(words[i].toLowerCase(),lineNum);
-            }
-        }
-        s.close();
-        long endTime = System.currentTimeMillis();
-        /*
+        
         //creates output file, adds all entries to it
-        Entry[] entries = list.toArray();
-        FileWriter output = null;
+                
+        String[] keys = new String[list1.size()];
+        keys = (String[]) list1.getMap().keySet().toArray();
+        
+        String[] words = new String[list1.size()];
+        
+        for(int i=0;i<list1.size();i++){
+            words[i]=keys[i]+" "+list1.getMap().get(keys[i]).toString();
+        }
+        
+        PrintStream fileStream = null;
         try {
-            output = new FileWriter(name.substring(0, name.length()-4) + "_index.txt");
-            for (Entry word : entries) {
-                output.write(word.toString());
+            fileStream = new PrintStream(new File(name+"_index.txt"));
+            for (String word : words) {
+                fileStream.println(word.toString());
             }
-            output.close();
+            fileStream.close();
         }
         catch (Exception e) {
             System.out.println("write failure");
             System.out.println(e);
         }
-        */
-        return endTime - startTime;
+        
+        return stopTime - startTime;
     }
 
     /**

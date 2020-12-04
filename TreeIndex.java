@@ -9,14 +9,14 @@ import java.util.*;
 public class TreeIndex implements Index
 {
     // instance variables - replace the example below with your own
-    private TreeMap<String, ArrayList<Integer>> map;
+    private TreeMap<String, TreeSet<Integer>> map;
 
     /**
      * Constructs a TreeMap
      */
     public TreeIndex()
     {
-        map = new TreeMap<String, ArrayList<Integer>>();
+        map = new TreeMap<String, TreeSet<Integer>>();
     }
 
     /**
@@ -31,13 +31,13 @@ public class TreeIndex implements Index
         }
         
         if(this.map.containsKey(w)){
-            ArrayList<Integer> set = this.map.get(w);
+            TreeSet<Integer> set = this.map.get(w);
             set.add(k);
             this.map.replace(w,set);
             return true;
         }
         
-        ArrayList<Integer> set = new ArrayList<Integer>();
+        TreeSet<Integer> set = new TreeSet<Integer>();
         set.add(k);
         this.map.put(w,set);
         return true;
@@ -52,25 +52,19 @@ public class TreeIndex implements Index
         return this.map.size();
     }
     
-    /**
-     * Gives the data as an array
-     * 
-     * @return    the array
-     */
-    /**
-     * Gives the data as an array
-     * 
-     * @return    the array
-     */
-    public void toArray(Entry[] array){
-        Entry[] a = (Entry[])this.map.keySet().toArray();
-        int i =0;
-        for(Entry temp : a){
-            for(int j = 0; j<this.map.size();j++){
-                array[i]=temp;
-                i++;
-            }
-        }
+    public TreeMap<String, TreeSet<Integer>> getMap(){
+        return this.map;
     }
+    
+    /**
+     * Gives the data as an array
+     * 
+     * @return    the array
+     */
+    /**
+     * Gives the data as an array
+     * 
+     * @return    the array
+     */
     
 }
