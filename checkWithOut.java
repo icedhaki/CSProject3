@@ -1,52 +1,53 @@
-
 /**
- * Write a description of class checkWithOut here.
+ * checkWithOut class to compare our result with the provided txt file
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Khaknazar Shyntassov
+ * @version 12/3/2020
  */
+
 import java.util.*;
 import java.io.*;
 public class checkWithOut
 {
+    /**
+     * main method runs simulation
+     */
     public static void main(String[] args){
-        check();
+        check(); // run check
     }
     
+    /**
+     * check method adds English words found in Shakespeare's book, adds to TreeIndex and outputs result in a text file
+     * 
+     * @param  no
+     * @return void
+     */
     public static void check() {
-        
-        ArrayList<String> dictionary = new ArrayList<String>();
-        try {
-            File file = new File("English.txt");
-            Scanner scanner = new Scanner(file);
-            // add words to a TreeMultiSet
-            while (scanner.hasNext()) {
-                String line = scanner.nextLine();
-                dictionary.add(line);
-            }
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found.");
-        }        
+        ArrayList<String> dictionary = getDictionary(); // get dictionary of English words
         
         ListIndex list1 = new ListIndex();
-        
+        long startTime = 0;
+        long stopTime = 0;
         try {
             File file = new File("Shakespeare.txt");
             Scanner scanner = new Scanner(file);
             int lineNum = 0;
             // add words to a TreeMultiSet
+            startTime = System.currentTimeMillis(); // record starting time
+            // iterate through the file
             while (scanner.hasNext()) {
-                lineNum++;
-                String line = scanner.nextLine();
-                String[] words = line.split("[\\p{Punct}\\s]+");
+                lineNum++; // increment line number
+                String line = scanner.nextLine(); // next line
+                String[] words = line.split("[^a-zA-Z]"); // include only letters
                 for(String w : words){
-                    w=w.toLowerCase();
+                    w=w.toLowerCase(); // turn to lower case
+                    // search the word in the dictionary
                     if(Collections.binarySearch(dictionary,w)>0){
-                        list1.searchAndAdd(w,lineNum); // exclude punctuation
+                        list1.searchAndAdd(w,lineNum); // run searchAndAdd
                     }
                 }
             }
+            stopTime = System.currentTimeMillis(); // record stopping time
             scanner.close();
         } catch (FileNotFoundException e) {
             System.out.println("File not found.");
@@ -63,9 +64,9 @@ public class checkWithOut
         
         PrintStream fileStream = null;
         try {
-            fileStream = new PrintStream(new File("Shakespeare_index.txt"));
+            fileStream = new PrintStream(new File("Shakespeare_listIndex.txt"));
             for (Entry word : entries) {
-                fileStream.println(word.toString());
+                fileStream.println(word.toString()); // write all entries to a txt file
             }
             fileStream.close();
         }
@@ -73,5 +74,31 @@ public class checkWithOut
             System.out.println("write failure");
             System.out.println(e);
         }
+        
+    }
+    
+    /**
+     * getDictionary method returns dictionary of English words
+     * 
+     * @param  no
+     * @return ArrayList<String>
+     */
+    public static ArrayList<String> getDictionary(){
+        ArrayList<String> dictionary = new ArrayList<String>(); // initialize dictionary
+        // populate ArrayList with words from provided dictionary
+        try {
+            File file = new File("English.txt");
+            Scanner scanner = new Scanner(file);
+            // add words to a TreeMultiSet
+            while (scanner.hasNext()) {
+                String line = scanner.nextLine();
+                dictionary.add(line);
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found.");
+        }
+                
+        return dictionary;
     }
 }

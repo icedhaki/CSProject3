@@ -27,10 +27,6 @@ public class HashIndex implements Index
      */
     public boolean searchAndAdd(String w, int k)
     {
-        if(this.map.isEmpty()){
-            return false;
-        }
-
         if(this.map.containsKey(w)){
             TreeSet<Integer> set = this.map.get(w);
             set.add(k);
@@ -53,6 +49,10 @@ public class HashIndex implements Index
         return this.map.size();
     }
 
+    public HashMap<String, TreeSet<Integer>> getMap(){
+        return this.map;
+    }
+    
     /**
      * Gives the data as an array
      * 

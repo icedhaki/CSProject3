@@ -1,10 +1,10 @@
-
 /**
  * Implementations for TreeMap
  *
  * @author Khaknazar Shyntassov
  * @version 11/24/2020
  */
+
 import java.util.*;
 public class TreeIndex implements Index
 {
@@ -26,9 +26,6 @@ public class TreeIndex implements Index
      * @return    If the insertion is successful
      */
     public boolean searchAndAdd(String w, int k){
-        if(this.map.isEmpty()){
-            return false;
-        }
         
         if(this.map.containsKey(w)){
             TreeSet<Integer> set = this.map.get(w);
