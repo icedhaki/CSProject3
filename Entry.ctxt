@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=Entry
 comment1.params=word\ line
-comment1.target=Entry(java.lang.String,\ java.lang.Integer)
+comment1.target=Entry(java.lang.String,\ int)
 comment1.text=\r\n\ Constructs\ an\ entry\ with\ a\ given\ word\ and\ the\ line\ where\ it\ first\ appears\r\n\ \r\n\ @param\ \ word\ \ the\ word\ to\ be\ added\r\n\ @param\ \ line\ \ the\ line\ where\ the\ word\ is\ first\ located\r\n
 comment2.params=line
-comment2.target=void\ addLine(java.lang.Integer)
+comment2.target=void\ addLine(int)
 comment2.text=\r\n\ Adds\ another\ line\ to\ the\ list\ of\ lines\ that\ the\ word\ appears\r\n\r\n\ @param\ \ line\ \ the\ line\ number\ to\ be\ added\r\n
 comment3.params=
 comment3.target=java.lang.String\ getWord()

@@ -13,7 +13,7 @@ public interface Index
      * @param  w  The word to be added
      * @return    If the insertion is successful
      */
-    boolean searchAndAdd(String w, Integer line);
+    boolean searchAndAdd(String w, int line);
     
     /**
      * Finds the total number of words encountered
@@ -27,5 +27,5 @@ public interface Index
      * 
      * @return    the array
      */
-    Entry[] toArray();
+    //void toArray(Entry[] array);
 }

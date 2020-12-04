@@ -25,7 +25,7 @@ public class HashIndex implements Index
      * @param  w  The word to be added
      * @return    If the insertion is successful
      */
-    public boolean searchAndAdd(String w, Integer k)
+    public boolean searchAndAdd(String w, int k)
     {
         if(this.map.isEmpty()){
             return false;
@@ -58,7 +58,19 @@ public class HashIndex implements Index
      * 
      * @return    the array
      */
-    public Entry[] toArray() {
-        return (Entry[])this.map.values().toArray();
+    /**
+     * Gives the data as an array
+     * 
+     * @return    the array
+     */
+    public void toArray(Entry[] array){
+        Entry[] a = (Entry[])this.map.keySet().toArray();
+        int i =0;
+        for(Entry temp : a){
+            for(int j = 0; j<this.map.size();j++){
+                array[i]=temp;
+                i++;
+            }
+        }
     }
 }

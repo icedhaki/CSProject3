@@ -39,22 +39,6 @@ public class ExperimentController
         }
         s.close();
         long endTime = System.currentTimeMillis();
-        /*
-        //creates output file, adds all entries to it
-        Entry[] entries = list1.toArray();
-        FileWriter output = null;
-        try {
-            output = new FileWriter(name.substring(0, name.length()-4) + "_index.txt");
-            for (Entry word : entries) {
-                output.write(word.toString());
-            }
-            output.close();
-        }
-        catch (Exception e) {
-            System.out.println("write failure");
-            System.out.println(e);
-        }
-        */
         return endTime - startTime;
     }
 

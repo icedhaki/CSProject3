@@ -17,7 +17,7 @@ public class Entry
      * @param  word  the word to be added
      * @param  line  the line where the word is first located
      */
-    public Entry(String word,Integer line)
+    public Entry(String word,int line)
     {
         set = new TreeSet<Integer>();
         this.word = word;
@@ -29,8 +29,8 @@ public class Entry
      *
      * @param  line  the line number to be added
      */
-    public void addLine(Integer line){
-        set.add(line);
+    public void addLine(int line){
+        this.set.add(line);
     }
     
     /**
@@ -55,6 +55,6 @@ public class Entry
      * Returns a string representation of the word and it's associated line numbers.
      */
     public String toString() {
-        return word + " " + this.set.toString();
+        return this.word + " " + this.set.toString();
     }
 }
