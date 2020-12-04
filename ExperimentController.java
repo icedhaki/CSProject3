@@ -199,10 +199,7 @@ public class ExperimentController
     }
     
     /**
-     * getDictionary method returns dictionary of English words
-     * 
-     * @param  no
-     * @return ArrayList<String>
+     * getDictionary method, returns dictionary of English words
      */
     public static ArrayList<String> getDictionary(){
         ArrayList<String> dictionary = new ArrayList<String>(); // initialize dictionary
@@ -245,7 +242,7 @@ public class ExperimentController
             hashMapTime=hashMapTime/5;
             
             // printing times
-            System.out.println(book + "times");
+            System.out.println(book + " times");
             System.out.println("List Index: " + listIndexTime);
             System.out.println("Tree Map: " + treeMapTime);
             System.out.println("Hash Map: " + hashMapTime);

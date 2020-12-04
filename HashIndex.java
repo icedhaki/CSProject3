@@ -48,29 +48,13 @@ public class HashIndex implements Index
     public int size() {
         return this.map.size();
     }
-
-    public HashMap<String, TreeSet<Integer>> getMap(){
-        return this.map;
-    }
     
     /**
-     * Gives the data as an array
+     * Gets the map
      * 
-     * @return    the array
+     * @return    the map
      */
-    /**
-     * Gives the data as an array
-     * 
-     * @return    the array
-     */
-    public void toArray(Entry[] array){
-        Entry[] a = (Entry[])this.map.keySet().toArray();
-        int i =0;
-        for(Entry temp : a){
-            for(int j = 0; j<this.map.size();j++){
-                array[i]=temp;
-                i++;
-            }
-        }
+    public HashMap<String, TreeSet<Integer>> getMap(){
+        return this.map;
     }
 }

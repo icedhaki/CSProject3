@@ -1,5 +1,5 @@
 /**
- * checkWithOut class to compare our result with the provided txt file
+ * checkWithOut class to compare our result with the provided txt file; this class is used for internal tests
  *
  * @author Khaknazar Shyntassov
  * @version 12/3/2020
@@ -18,9 +18,6 @@ public class checkWithOut
     
     /**
      * check method adds English words found in Shakespeare's book, adds to TreeIndex and outputs result in a text file
-     * 
-     * @param  no
-     * @return void
      */
     public static void check() {
         ArrayList<String> dictionary = getDictionary(); // get dictionary of English words
@@ -80,8 +77,7 @@ public class checkWithOut
     /**
      * getDictionary method returns dictionary of English words
      * 
-     * @param  no
-     * @return ArrayList<String>
+     * @return    The dictionary as an ArrayList
      */
     public static ArrayList<String> getDictionary(){
         ArrayList<String> dictionary = new ArrayList<String>(); // initialize dictionary

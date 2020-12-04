@@ -53,6 +53,8 @@ public class Entry
     
     /**
      * Returns a string representation of the word and it's associated line numbers.
+     * 
+     * @return    The String representation
      */
     public String toString() {
         return this.word + " " + this.set.toString();

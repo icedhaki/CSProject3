@@ -21,11 +21,4 @@ public interface Index
      * @return    the number of words
      */
     int size();
-    
-    /**
-     * Gives the data as an array
-     * 
-     * @return    the array
-     */
-    //void toArray(Entry[] array);
 }

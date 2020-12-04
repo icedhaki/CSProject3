@@ -49,19 +49,13 @@ public class TreeIndex implements Index
         return this.map.size();
     }
     
+    /**
+     * Gets the map
+     * 
+     * @return    the map
+     */
     public TreeMap<String, TreeSet<Integer>> getMap(){
         return this.map;
     }
-    
-    /**
-     * Gives the data as an array
-     * 
-     * @return    the array
-     */
-    /**
-     * Gives the data as an array
-     * 
-     * @return    the array
-     */
     
 }

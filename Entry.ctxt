@@ -14,5 +14,5 @@ comment4.target=java.util.TreeSet\ getSet()
 comment4.text=\r\n\ Gets\ the\ list\ of\ all\ lines\ where\ the\ word\ appeared\r\n\ \r\n\ @return\ \ \ \ the\ set\r\n
 comment5.params=
 comment5.target=java.lang.String\ toString()
-comment5.text=\r\n\ Returns\ a\ string\ representation\ of\ the\ word\ and\ it's\ associated\ line\ numbers.\r\n
+comment5.text=\r\n\ Returns\ a\ string\ representation\ of\ the\ word\ and\ it's\ associated\ line\ numbers.\r\n\ \r\n\ @return\ \ \ \ The\ String\ representation\r\n
 numComments=6

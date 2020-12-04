@@ -75,7 +75,12 @@ public class ListIndex implements Index
         */
         
     }
-
+    
+    /**
+     * Adds to the list
+     * 
+     * @param    the Entry to add
+     */
     public void addIt(Entry e){
         for (int i = 0; i < this.list.size(); i++) {
             // if the element you are looking at is smaller than x, 
@@ -92,6 +97,7 @@ public class ListIndex implements Index
         this.list.add(e);
         
     }
+    
     /**
      * Finds the total number of words encountered
      * 
@@ -101,25 +107,12 @@ public class ListIndex implements Index
         return this.list.size();
     }
     
+    /**
+     * Gets the list
+     * 
+     * @return    the list
+     */
     public ArrayList<Entry> getList(){
         return this.list;
-    }
-    
-    public String getE(){
-        return this.list.get(0).toString();
-    }
-    
-    /**
-     * Gives the data as an array
-     * 
-     * @return    the array
-     */
-    
-    public Entry[] toArray(){
-        Entry[] entry = new Entry[this.list.size()];
-        for(int i=0;i<this.list.size();i++){
-            entry[i]=this.list.get(i);
-        }
-        return entry;
     }
 }
