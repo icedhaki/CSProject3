@@ -227,7 +227,7 @@ public class ExperimentController
      * Main method - overall experiment running
      */
     public static void main(String[] args){
-        String[] bookNames = {"book0.txt","book1.txt","book2.txt","book3.txt","book4.txt","book5.txt","book6.txt","book7.txt"};
+        String[] bookNames = {"book0.txt","book1.txt","book2.txt","book3.txt","book4.txt","book5.txt","book6.txt"};
         float listIndexTime = 0;
         float treeMapTime = 0;
         float hashMapTime = 0;
