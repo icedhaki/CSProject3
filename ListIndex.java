@@ -23,16 +23,18 @@ public class ListIndex implements Index
      * Searches ArrayList to see if it contains the word, if not adds a new one, if so, then adds to that word the line number
      *
      * @param  w  The word to be added
+     * @param  k  the line number the word found is on
      * @return    If the insertion is successful
      */
     public boolean searchAndAdd(String w, int k){
-        if(this.list == null){
+        if (w == null) return false; //cheks for null input
+        if(this.list == null){ //checks for null list
             return false;
         }
         
         int l = 0, r = this.list.size() - 1; 
         int index=0;
-        while (l <= r) { 
+        while (l <= r) { //binaryn search
             int m = l + (r - l) / 2; 
   
             // Check if x is present at mid 
@@ -77,7 +79,7 @@ public class ListIndex implements Index
     }
     
     /**
-     * Adds to the list
+     * Adds to the list, Helper method for searchAndAdd
      * 
      * @param    the Entry to add
      */

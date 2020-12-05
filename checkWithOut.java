@@ -1,5 +1,5 @@
 /**
- * checkWithOut class to compare our result with the provided txt file; this class is used for internal tests
+ * checkWithOut class to compare our result with the provided txt file; this class is used for internal tests, including ensuring our result from Shakespeare.txt is the same as the out.txt, as such, not tested
  *
  * @author Khaknazar Shyntassov
  * @version 12/3/2020

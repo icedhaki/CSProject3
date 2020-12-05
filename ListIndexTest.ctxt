@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=ListIndexTest
+comment0.text=\r\n\ The\ test\ class\ ListIndexTest.\ Note\:\ getters\ and\ setters\ untested\r\n\r\n\ @author\ \ Henry\ Grote\r\n\ @version\ 12/03/2020\r\n
+comment1.params=
+comment1.target=ListIndexTest()
+comment1.text=\r\n\ Default\ constructor\ for\ test\ class\ ListIndexTest\r\n
+comment2.params=
+comment2.target=void\ setUp()
+comment2.text=\r\n\ Sets\ up\ the\ test\ fixture.\r\n\r\n\ Called\ before\ every\ test\ case\ method.\r\n
+comment3.params=
+comment3.target=void\ tearDown()
+comment3.text=\r\n\ Tears\ down\ the\ test\ fixture.\r\n\r\n\ Called\ after\ every\ test\ case\ method.\r\n
+comment4.params=
+comment4.target=void\ size0()
+comment5.params=
+comment5.target=void\ size1()
+comment6.params=
+comment6.target=void\ searchAndAddEmptyList()
+comment7.params=
+comment7.target=void\ searchAndAddNonEmptyList()
+comment8.params=
+comment8.target=void\ searchAndAddSameWord()
+comment9.params=
+comment9.target=void\ searchAndAddNull()
+numComments=10

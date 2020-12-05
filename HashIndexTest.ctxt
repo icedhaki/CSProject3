@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=HashIndexTest
+comment0.text=\r\n\ The\ test\ class\ HashIndexTest.\ Note\:\ getters\ and\ setters\ untested\r\n\r\n\ @author\ \ Henry\ Grote\r\n\ @version\ 12/03/2020\r\n
+comment1.params=
+comment1.target=void\ size0()
+comment2.params=
+comment2.target=void\ size1()
+comment3.params=
+comment3.target=void\ searchAndAddEmptyList()
+comment4.params=
+comment4.target=void\ searchAndAddNonEmptyList()
+comment5.params=
+comment5.target=void\ searchAndAddSameWord()
+comment6.params=
+comment6.target=void\ searchAndAddNull()
+numComments=7
