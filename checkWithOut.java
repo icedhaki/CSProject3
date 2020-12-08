@@ -26,7 +26,7 @@ public class checkWithOut
         long startTime = 0;
         long stopTime = 0;
         try {
-            File file = new File("Shakespeare.txt");
+            File file = new File("Shakespeare.txt");//file to read from
             Scanner scanner = new Scanner(file);
             int lineNum = 0;
             // add words to a TreeMultiSet
@@ -61,7 +61,7 @@ public class checkWithOut
         
         PrintStream fileStream = null;
         try {
-            fileStream = new PrintStream(new File("Shakespeare_listIndex.txt"));
+            fileStream = new PrintStream(new File("Shakespeare_listIndex.txt")); //file to write to
             for (Entry word : entries) {
                 fileStream.println(word.toString()); // write all entries to a txt file
             }
